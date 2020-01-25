@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
     height: 100%;
-    background-color: #181e2b;
+    background: linear-gradient(to right, #181e2b, #152038);
 
     display: flex;
     align-items: center;
@@ -47,8 +47,14 @@ export const Container = styled.div`
             flex-direction: column;
             align-items: flex-start;
 
-            span {
+            p {
                 font-weight: bold;
+                font-size: 12px;
+            }
+
+            span {
+                margin-bottom: 10px;
+                color: rgba(255, 0, 0, 0.7);
                 font-size: 12px;
             }
 
