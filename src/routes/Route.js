@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import Customers from '../pages/Customers';
 import SignIn from '../pages/SignIn';
 
+import MainLayout from '../pages/_layouts/Main';
+import AuthLayout from '../pages/_layouts/Auth';
+
 export default function RouteWrapper({
     component: Component,
     isPrivate,
@@ -20,7 +23,18 @@ export default function RouteWrapper({
         return <Redirect to={Customers} />;
     }
 
-    return <Route {...rest} component={Component} />;
+    const Layout = signed ? MainLayout : AuthLayout;
+
+    return (
+        <Route
+            {...rest}
+            render={props => (
+                <Layout>
+                    <Component {...props} />
+                </Layout>
+            )}
+        />
+    );
 }
 
 RouteWrapper.propTypes = {

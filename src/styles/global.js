@@ -23,17 +23,20 @@ export default createGlobalStyle`
     }
 
     body, button, input {
-        font: 14px, 'Roboto', Arial, Helvetica, sans-serif;
+        font: 14px 'Roboto', sans-serif;
     }
 
     button {
         cursor: pointer;
-        border: solid;
+        border: none;
+    }
+
+    input{
+        border: none;
     }
 
     input[type='submit'] {
         cursor: pointer;
-        border: solid;
     }
 
     a {
