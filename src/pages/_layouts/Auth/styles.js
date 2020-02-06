@@ -3,7 +3,9 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
     height: 100%;
-    background: linear-gradient(to right, #181e2b, #152038);
+    background: linear-gradient(300deg, #364156, #011638 40%);
+    background-repeat: no-repeat;
+    background-size: cover;
 
     display: flex;
     align-items: center;
@@ -27,7 +29,7 @@ export const Container = styled.div`
     hr {
         width: 300px;
         border-top: 1px;
-        border-color: #1f2a3a;
+        border-color: #5e6776;
         margin: 20px 0;
     }
 
@@ -37,8 +39,8 @@ export const Container = styled.div`
 
         .input-block {
             background-color: #1f2a3a;
-            border-left: 1px solid white;
-            border-radius: 0 4px 4px 0;
+            border-left: 2px solid #008239;
+            border-radius: 0 4px 4px 15px;
 
             margin-top: 10px;
             padding: 15px 0 0 15px;
@@ -54,7 +56,7 @@ export const Container = styled.div`
 
             span {
                 margin-bottom: 10px;
-                color: rgba(255, 0, 0, 0.7);
+                color: rgba(255, 0, 0, 1);
                 font-size: 12px;
             }
 
@@ -62,9 +64,23 @@ export const Container = styled.div`
                 height: 45px;
                 background-color: transparent;
                 width: 350px;
-
-                font-size: 16px;
                 color: white;
+
+                &:-webkit-autofill {
+                    -webkit-text-fill-color: #fff;
+                    box-shadow: 0 0 0px 1000px #1f2a3a inset;
+                }
+
+                &::placeholder {
+                    font-size: 14px;
+                    color: rgba(255, 255, 255, 0.1);
+                }
+            }
+
+            transition: 0.3s;
+
+            &:hover {
+                border-left: 2px solid orange;
             }
         }
 
