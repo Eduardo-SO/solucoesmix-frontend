@@ -8,7 +8,7 @@ import SignIn from '../pages/SignIn';
 import MainLayout from '../pages/_layouts/Main';
 import AuthLayout from '../pages/_layouts/Auth';
 
-import store from '~store';
+import { store } from '~store';
 
 export default function RouteWrapper({
     component: Component,

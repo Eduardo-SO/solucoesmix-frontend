@@ -85,11 +85,13 @@ export const Container = styled.div`
         }
 
         button {
-            margin-top: 20px;
             height: 45px;
+            margin-top: 20px;
+            border-radius: 4px;
 
             background-color: #008239;
             color: white;
+            font-weight: bold;
 
             transition: all ease 0.2s;
 
