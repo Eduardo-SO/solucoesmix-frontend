@@ -4,31 +4,39 @@ import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import { signInRequest } from '~/store/modules/auth/actions';
+import { signUpRequest } from '~/store/modules/auth/actions';
 
 import logo from '../../assets/img/logo.png';
 
 const schema = Yup.object().shape({
+    name: Yup.string().required('• Campo obrigatório'),
     email: Yup.string()
         .email('• Email inválido')
         .required('• Campo obrigatório'),
     password: Yup.string().required('• Campo obrigatório'),
 });
 
-export default function SignIn() {
+export default function SignUp() {
     const dispatch = useDispatch();
     const loading = useSelector(state => state.auth.loading);
 
-    function handleSubmit({ email, password }) {
-        dispatch(signInRequest(email, password));
+    function handleSubmit({ name, email, password }) {
+        dispatch(signUpRequest(name, email, password));
     }
 
     return (
         <>
             <img src={logo} alt="Soluções Mix" />
             <hr />
-            <span>Fazer Login</span>
+            <span>Registrar Nova Conta</span>
             <Form schema={schema} onSubmit={handleSubmit}>
+                <div className="input-block">
+                    <p>Seu Nome</p>
+                    <Input
+                        name="name"
+                        placeholder="Eduardo Souza de Oliveira"
+                    />
+                </div>
                 <div className="input-block">
                     <p>Seu Email</p>
                     <Input
@@ -46,10 +54,11 @@ export default function SignIn() {
                 </div>
 
                 <button type="submit">
-                    {loading ? 'Carregando...' : 'Entrar'}
+                    {loading ? 'Carregando...' : 'Registrar'}
                 </button>
             </Form>
-            <Link to="/register">Criar nova conta</Link>
+
+            <Link to="/">Fazer Login</Link>
         </>
     );
 }

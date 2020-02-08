@@ -33,9 +33,15 @@ export const Container = styled.div`
         margin: 20px 0;
     }
 
+    span {
+        color: rgba(255, 255, 255, 0.7);
+        align-self: flex-start;
+    }
+
     form {
         display: flex;
         flex-direction: column;
+        width: 95%;
 
         .input-block {
             background-color: #1f2a3a;
@@ -62,8 +68,8 @@ export const Container = styled.div`
 
             input {
                 height: 45px;
+                width: 100%;
                 background-color: transparent;
-                width: 350px;
                 color: white;
 
                 &:-webkit-autofill {
@@ -88,6 +94,7 @@ export const Container = styled.div`
             height: 45px;
             margin-top: 20px;
             border-radius: 4px;
+            font-size: 18px;
 
             background-color: #008239;
             color: white;
@@ -98,6 +105,17 @@ export const Container = styled.div`
             &:hover {
                 background-color: ${darken(0.03, '#008239')};
             }
+        }
+    }
+    a {
+        color: #fff;
+        margin-top: 10px;
+        font-size: 12px;
+
+        transition: all ease 0.2s;
+
+        &:hover {
+            color: ${darken(0.2, '#fff')};
         }
     }
 `;
