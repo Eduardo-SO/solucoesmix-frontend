@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { Container } from './styles';
 import api from '~/services/api';
@@ -16,12 +18,28 @@ export default function Customers() {
         loadCustomers();
     }, [setCustomers]);
 
+    useEffect(() => {}, []);
+
+    async function handleDelete(id) {
+        try {
+            toast.success('Cliente deletado com sucesso');
+
+            await api.delete(`customers/${id}`);
+
+            const response = await api.get('/customers');
+
+            setCustomers(response.data);
+        } catch (error) {
+            toast.error('Falha ao deletar o cliente');
+        }
+    }
+
     return (
         <Container>
             <header>
                 <h2>Gerenciando Clientes</h2>
                 <div>
-                    <button type="button">CADASTRAR</button>
+                    <Link to="/customer">CADASTRAR</Link>
                     <input type="text" placeholder="Buscar cliente" />
                 </div>
             </header>
@@ -39,7 +57,7 @@ export default function Customers() {
                     </thead>
                     <tbody>
                         {customers.map(customer => (
-                            <tr>
+                            <tr key={customer.id}>
                                 <td>{customer.id}</td>
                                 <td>{customer.name}</td>
                                 <td>{customer.responsible}</td>
@@ -49,7 +67,13 @@ export default function Customers() {
                                     <button type="button" className="edit">
                                         Editar
                                     </button>
-                                    <button type="button" className="delete">
+                                    <button
+                                        type="button"
+                                        className="delete"
+                                        onClick={() =>
+                                            handleDelete(customer.id)
+                                        }
+                                    >
                                         Apagar
                                     </button>
                                 </td>

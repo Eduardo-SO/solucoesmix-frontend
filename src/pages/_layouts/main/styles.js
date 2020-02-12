@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    height: 100%;
+    min-height: 100%;
     color: #fff;
     background: linear-gradient(300deg, #364156, #011638 40%);
     background-repeat: no-repeat;

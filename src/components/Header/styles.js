@@ -15,8 +15,11 @@ export const Content = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    img {
+    a {
         height: 70%;
+        img {
+            height: 100%;
+        }
     }
 `;
 

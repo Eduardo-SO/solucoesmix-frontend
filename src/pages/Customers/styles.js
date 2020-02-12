@@ -13,9 +13,8 @@ export const Container = styled.div`
         justify-content: space-between;
         align-items: center;
 
-        button {
-            height: 36px;
-            padding: 0 15px;
+        a {
+            padding: 10px 15px;
             border-radius: 4px;
 
             background: #008239;
